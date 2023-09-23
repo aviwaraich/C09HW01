@@ -1,0 +1,111 @@
+
+
+
+
+
+
+<!-- 
+
+  function renderComment(comment) {
+    let date = new Date(comment.date);
+    let formattedDate = date.toLocaleDateString();
+    let elmt = document.createElement("div");
+    elmt.className = "comments";
+    elmt.innerHTML = `
+    <div class="del_content_autoher">
+        <div class="delete-icon icon" data-id="${comment.commentId}" style="position: absolute; top: 10px; right: 10px;"></div>
+        <p class="comment_content">${comment.content}</p>
+        <p class="comment_author_date">By ${comment.author} on ${formattedDate}</p>
+    </div>
+    `;
+    return elmt;
+}
+
+
+
+
+  elmt.innerHTML = `
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div>
+                <p class="comment_content">${comment.content}</p>
+                <p class="comment_author_date">By ${comment.author} on ${formattedDate}</p>
+            </div>
+            <div class="delete-icon icon" data-id="${comment.commentId}"></div>
+        </div>
+    `;
+
+https://talksport.com/wp-content/uploads/sites/5/2020/04/NINTCHDBPICT000575474879.jpg?w=1280&quality=44
+https://img.asmedia.epimg.net/resizer/NNnmY8jHxo0oCDrhJv4mBAr6BVk=/1200x1200/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/Q3MNMF64MRPK5PHYP4M6NJBB34.jpg
+    <div class="tyson_pic"></div>
+    <div> <img class="tyson_pic" src="https://talksport.com/wp-content/uploads/sites/5/2020/04/NINTCHDBPICT000575474879.jpg?w=1280&quality=44" alt="him"></div>
+<!doctype html>
+<html>
+
+  <head>
+    <script type="module" src="js/index.mjs"></script>
+    <meta charset="utf-8" />
+    <title>The Web Gallery</title>
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+
+    <header>
+      <a href="/" id="title">The Web Gallery</a>
+    </header>
+
+    <div class="picture_comment_container">
+        <div style="display: flex; flex-direction: column;">
+            <div class="picture_container">
+                <button id="backButton">Back</button>
+                <div id="images"></div>
+                <button id="nextButton">Next</button>
+            </div>
+            <button id="delete_image">Delete</button>
+        </div>
+        <div class="comment_container">
+            <div><h1>Comments</h1></div>
+            <form style="display: flex; flex-direction: row;" id="comment_form" >
+                <label for="author">Name:</label><br>
+                <input type="text" id="author" name="author"><br>
+                <label for="comment">Comment:</label><br>
+                <input type="text" id="comment" name="comment">
+                <input type="submit" value="Post">
+            </form>
+            <div class="comment_box" id="comments"></div>
+            <div class="comment_section">
+              <div class="comment_boxs"></div>
+              <div class="pagination_buttons">
+                  <button id="prevCommentPage" style="visibility: hidden;">Previous Comments</button> 
+                  <button id="nextCommentPage">Next Comments</button>
+              </div>
+          </div>
+          
+          
+          </div> 
+        </div>
+      </div>            
+    </div>
+    </div>
+    <div>
+        <div><h1>Add Picture</Picture></h1></div>
+        <form id="add_picture_form">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+            <label for="author">Author:</label><br>
+            <input type="text" id="author" name="author"><br>
+            <label for="url">Picutre URL:</label><br>
+            <input type="url" id="url" name="url">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
+
+    <footer>
+      <a href="/credits.html">credits</a>
+    </footer>
+
+  </body>
+</html>
+
+  --> 
