@@ -217,3 +217,12 @@ function updateNavigationButtons() {
         nextButton.style.visibility = 'hidden';
     }
 }
+
+document.getElementById('toggleFormBtn').addEventListener('click', function() {
+    var formContainer = document.getElementById('formContainer');
+    if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+        formContainer.style.display = 'block';
+    } else {
+        formContainer.style.display = 'none';
+    }
+});

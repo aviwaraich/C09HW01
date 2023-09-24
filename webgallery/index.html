@@ -50,18 +50,20 @@
         </div>
     </div> 
 
-    <div style="color: white;">
-        <div><h1>Add Picture</h1></div>
-        <form id="add_picture_form">
-            <label for="title">Title:</label><br>
-            <input type="text" id="title_image" name="title"><br>
-            <label for="author">Author:</label><br>
-            <input type="text" id="author_image" name="author"><br>
-            <label for="url">Picture URL:</label><br>
-            <input type="url" id="url" name="url">
-            <input type="submit" value="Add">
-        </form>
+    <div id="formContainer" style="color: white; display: block;"> 
+      <button id="toggleFormBtn">Toggle Add Image Form</button>
+      <div><h1>Add Picture</h1></div>
+      <form id="add_picture_form">
+          <label for="title">Title:</label><br>
+          <input type="text" maxlength="70" id="title_image" name="title"><br>
+          <label for="author">Author:</label><br>
+          <input type="text" maxlength="100" id="author_image" name="author"><br>
+          <label for="url">Picture URL:</label><br>
+          <input type="url" id="url" name="url">
+          <input type="submit" value="Add">
+      </form>
     </div>
+  
 
     <footer>
         <a href="/credits.html">credits</a>

@@ -253,3 +253,7 @@ header #title {
     background-color:red;
     transform: scale(0.90);
 }
+
+#add_picture_form {
+    display: none;
+}
