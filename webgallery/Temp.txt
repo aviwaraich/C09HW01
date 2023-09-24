@@ -1,8 +1,9 @@
 
 
+<div class="bim-icon" id="delete_image"></div> 
 
 
-
+<p style="color: white;">Hello</p>
 
 <!-- 
 

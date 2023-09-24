@@ -16,26 +16,36 @@
 
     <div class="picture_comment_container">
         <div style="display: flex; flex-direction: column;">
-          <div class="picture_container">
+          <div class="nav_image_container">  
             <div class="back-icon toggle_icons" id="backButton"></div>
             <div class="image_wrapper" id="images"></div>
             <div class="next-icon toggle_icons" id="nextButton"></div>
-        </div>        
-        <button id="delete_image">Delete</button>
+          </div>
+          <div class="delete_button_container"> 
+              <button id="delete_image" class="delete_button">Delete</button>
+          </div>        
         </div>
         <div class="comment_container">
             <div><h1>Comments</h1></div>
-            <form style="display: flex; flex-direction: row;" id="comment_form" >
-                <label for="author">Name:</label><br>
-                <input type="text" id="author" name="author"><br>
-                <label for="comment">Comment:</label><br>
-                <input type="text" id="comment" name="comment">
-                <input type="submit" value="Post">
+            <form class="add_comment_box" id="comment_form" >
+                <div style="display: flex; ">
+                  <div class="">
+                    <label for="author">Name:</label><br>
+                    <input class="name_inputboxes" type="text" id="author" name="author" ><br>
+                  </div>
+                  <div style="margin-right: 100px;">
+                    <label for="comment">Comment:</label><br>
+                    <input class="comment_inputboxes" type="text" id="comment" name="comment">
+                  </div>
+                </div>
+                <div class="">
+                  <input class="postbutton" type="submit" value="Post">
+                </div>
             </form>
             <div class="comments_list" id="comments"></div> 
             <div class="pagination_buttons">
-                <button id="prevCommentPage" style="visibility: hidden;">Previous Comments</button>
-                <button id="nextCommentPage">Next Comments</button>
+                <button class="next_prev_button" id="prevCommentPage" style="visibility: hidden;">Previous Comments</button>
+                <button class="next_prev_button" id="nextCommentPage">Next Comments</button>
             </div>
         </div>
     </div> 
@@ -44,9 +54,9 @@
         <div><h1>Add Picture</h1></div>
         <form id="add_picture_form">
             <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title"><br>
+            <input type="text" id="title_image" name="title"><br>
             <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author"><br>
+            <input type="text" id="author_image" name="author"><br>
             <label for="url">Picture URL:</label><br>
             <input type="url" id="url" name="url">
             <input type="submit" value="Add">

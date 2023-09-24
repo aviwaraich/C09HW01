@@ -3,6 +3,10 @@ import { addImage, deleteImage, addComment, deleteComment } from './api.mjs';
 let currentImageIndex = 0;
 let currentCommentPage = 0;
 const commentsPerPage = 10;
+document.getElementById('author').addEventListener('input', checkInput);
+document.getElementById('comment').addEventListener('input', checkInput);
+
+checkInput();
 
 function togglePictureCommentContainer() {
     let urls = JSON.parse(localStorage.getItem("urls"));
@@ -17,11 +21,11 @@ function togglePictureCommentContainer() {
 
 document.getElementById("add_picture_form").addEventListener("submit", function (e) {
     e.preventDefault();
-    const title = document.getElementById("title").value;
-    const author = document.getElementById("author").value;
+    const title_image = document.getElementById("title_image").value;
+    const author_image = document.getElementById("author_image").value;
     const url = document.getElementById("url").value;
     document.getElementById("add_picture_form").reset();
-    addImage(title, author, url);
+    addImage(title_image, author_image, url);
     togglePictureCommentContainer();
     renderImages();
 });
@@ -32,6 +36,7 @@ document.getElementById("nextButton").addEventListener("click", function() {
     if (urls && Array.isArray(urls) && currentImageIndex < urls.length - 1) {
         currentImageIndex++;
         displayImage(urls[currentImageIndex]);
+        updateNavigationButtons();
     }
 });
 
@@ -40,6 +45,7 @@ document.getElementById("backButton").addEventListener("click", function() {
     if (urls && Array.isArray(urls) && currentImageIndex > 0) {
         currentImageIndex--;
         displayImage(urls[currentImageIndex]);
+        updateNavigationButtons();
     }
 });
 
@@ -63,6 +69,7 @@ function renderImages() {
     if (urls && Array.isArray(urls) && urls.length >0) {
         displayImage(urls[currentImageIndex]);
     }
+    updateNavigationButtons();
 }
 
 function displayImage(urlObj) {
@@ -72,15 +79,19 @@ function displayImage(urlObj) {
     let elmt = document.createElement("div");
     elmt.className = "image";
     elmt.innerHTML = `
+        <div class="image-info">
+            <h2>${urlObj.title}</h2>
+            <p>By ${urlObj.author}</p>
+        </div>
         <div><img class="pictures" src="${urlObj.url}" alt="${urlObj.title}"></div>
     `;
     imagesContainer.append(elmt);
     document.getElementById("delete_image").setAttribute('data-id', urlObj.imageId);
     document.getElementById("comment_form").setAttribute('data-id', urlObj.imageId);
-    currentCommentPage = 0;  
+    currentCommentPage = 0;
     renderComments(urlObj.imageId);
-
 }
+
 
 document.getElementById("comment_form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -89,6 +100,7 @@ document.getElementById("comment_form").addEventListener("submit", function (e) 
     const comment = document.getElementById("comment").value;
     document.getElementById("comment_form").reset();
     addComment(imageId, author, comment);
+    checkInput()
     renderComments(imageId); 
 });
 
@@ -169,3 +181,39 @@ document.getElementById("comments").addEventListener("click", function (event) {
         renderComments(imageId);
     }
 });
+
+function checkInput() {
+    const author = document.getElementById('author').value;
+    const comment = document.getElementById('comment').value;
+    const postButton = document.querySelector('.postbutton');
+
+    if (author && comment) {
+        postButton.style.display = 'block';  // Shows the button
+    } else {
+        postButton.style.display = 'none';  // Hides the button
+    }
+}
+
+
+function updateNavigationButtons() {
+    let urls = JSON.parse(localStorage.getItem("urls"));
+    const backButton = document.getElementById("backButton");
+    const nextButton = document.getElementById("nextButton");
+
+    if (urls && Array.isArray(urls)) {
+        if (currentImageIndex > 0) {
+            backButton.style.visibility = 'visible';
+        } else {
+            backButton.style.visibility = 'hidden';
+        }
+
+        if (currentImageIndex < urls.length - 1) {
+            nextButton.style.visibility = 'visible';
+        } else {
+            nextButton.style.visibility = 'hidden';
+        }
+    } else {
+        backButton.style.visibility = 'hidden';
+        nextButton.style.visibility = 'hidden';
+    }
+}
