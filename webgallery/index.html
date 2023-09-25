@@ -49,20 +49,29 @@
             </div>
         </div>
     </div> 
-
-    <div id="formContainer" style="color: white; display: block;"> 
-      <button id="toggleFormBtn">Toggle Add Image Form</button>
-      <div><h1>Add Picture</h1></div>
-      <form id="add_picture_form">
-          <label for="title">Title:</label><br>
-          <input type="text" maxlength="70" id="title_image" name="title"><br>
-          <label for="author">Author:</label><br>
-          <input type="text" maxlength="100" id="author_image" name="author"><br>
-          <label for="url">Picture URL:</label><br>
-          <input type="url" id="url" name="url">
-          <input type="submit" value="Add">
+  
+  <div class="add_image_container"> 
+      <button id="image_toggle" class="image_toggle">Click here to add Add image to the gallery!</button>
+      <form id="add_picture_form" class="add_picture_form">
+        <div class="the3boxes">
+            <div>
+              <label for="title">Title:</label>
+              <input class="add_image_input_title_author" type="text" maxlength="70" id="title_image" name="title">  
+            </div>
+            <div>
+              <label for="author">Author:</label>
+              <input class="add_image_input_title_author" type="text" maxlength="100" id="author_image" name="author">
+            </div>
+            <div>
+              <label for="url">URL:</label>
+              <input class="add_image_url" type="url" id="url" name="url">
+            </div>
+            <div class="button_add_class">
+              <input class="addbutton" type="submit" value="Add">
+            </div>
+        </div>
       </form>
-    </div>
+    </div>  
   
 
     <footer>

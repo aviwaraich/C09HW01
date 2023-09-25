@@ -38,6 +38,7 @@ document.getElementById("nextButton").addEventListener("click", function() {
         displayImage(urls[currentImageIndex]);
         updateNavigationButtons();
     }
+    document.getElementById('add_picture_form').style.display = 'none';  // Hide form container when Next button is clicked
 });
 
 document.getElementById("backButton").addEventListener("click", function() {
@@ -47,7 +48,9 @@ document.getElementById("backButton").addEventListener("click", function() {
         displayImage(urls[currentImageIndex]);
         updateNavigationButtons();
     }
+    document.getElementById('add_picture_form').style.display = 'none';  // Hide form container when Prev button is clicked
 });
+
 
 document.getElementById("delete_image").addEventListener("click", function () {
     let imageId = this.getAttribute('data-id'); 
@@ -218,11 +221,27 @@ function updateNavigationButtons() {
     }
 }
 
-document.getElementById('toggleFormBtn').addEventListener('click', function() {
-    var formContainer = document.getElementById('formContainer');
+document.getElementById('image_toggle').addEventListener('click', function() {
+    const formContainer = document.getElementById('add_picture_form');
     if (formContainer.style.display === 'none' || formContainer.style.display === '') {
         formContainer.style.display = 'block';
     } else {
         formContainer.style.display = 'none';
     }
 });
+
+function togglePictureCommentContainer() {
+    let urls = JSON.parse(localStorage.getItem("urls"));
+    let container = document.querySelector('.picture_comment_container');
+    const formContainer = document.getElementById('add_picture_form');  // Get the form container element
+
+    if (urls && Array.isArray(urls) && urls.length > 0) {
+        container.style.display = 'flex';
+        formContainer.style.display = 'none';  // Hide form container when there are images
+    } else {
+        container.style.display = 'none';
+        formContainer.style.display = 'block';  // Show form container when there are no images
+    }
+}
+togglePictureCommentContainer();
+renderImages();
